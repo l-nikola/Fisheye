@@ -11,9 +11,9 @@ function photographerTemplate(data) {
           <img src="${picture}" alt="${name}">
         </div>
         <h2>${name}</h2>
-        <span>${data.city}, ${data.country}</span>
-        <span>${data.tagline}</span>
-        <span>${data.price}€/jour</span>
+        <span class="city">${data.city}, ${data.country}</span>
+        <span class="tag">${data.tagline}</span>
+        <span class="price">${data.price}€/jour</span>
       </article>
     `;
 

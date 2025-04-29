@@ -17,6 +17,7 @@
 .photographer_section article h2 {
   color: var(--secondary-color);
   font-size: 36px;
+  margin: 20px 0 0 0;
 }
 
 .picture-wrapper {
@@ -31,4 +32,23 @@
   height: 100%;
   object-fit: cover;
   transform: scale(1.5);
+}
+
+.picture-wrapper span {
+  margin-bottom: 3px;
+}
+
+.city {
+  color: var(--main-color);
+  font-size: 13px;
+}
+
+.tag {
+  color: black;
+  font-size: 10px;
+}
+
+.price {
+  color: var(--light-text-color);
+  font-size: 9px;
 }
