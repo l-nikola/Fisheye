@@ -22,17 +22,14 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-top: 44px;
-  margin-bottom: 110px;
+  margin: 44px 100px 110px;
 }
 
-h1 {
+header h1 {
   color: var(--main-color);
-  margin-right: 100px;
 }
 
 .logo {
   height: 50px;
   width: 200px;
-  margin-left: 100px;
 }
