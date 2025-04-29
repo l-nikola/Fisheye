@@ -7,7 +7,9 @@ function photographerTemplate(data) {
 
     const article = `
       <article>
-        <img src="${picture}" alt="${name}">
+        <div class="picture-wrapper">
+          <img src="${picture}" alt="${name}">
+        </div>
         <h2>${name}</h2>
         <span>${data.city}, ${data.country}</span>
         <span>${data.tagline}</span>
