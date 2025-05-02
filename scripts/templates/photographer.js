@@ -7,10 +7,12 @@ function photographerTemplate(data) {
 
     const article = `
       <article>
-        <div class="picture-wrapper">
-          <img src="${picture}" alt="${name}">
-        </div>
-        <h2>${name}</h2>
+        <a href="/">
+          <div class="picture-wrapper">
+            <img src="${picture}" alt="${name}">
+          </div>
+          <h2>${name}</h2>
+        </a>
         <span class="city">${data.city}, ${data.country}</span>
         <span class="tag">${data.tagline}</span>
         <span class="price">${data.price}€/jour</span>
