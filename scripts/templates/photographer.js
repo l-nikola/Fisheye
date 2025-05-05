@@ -7,7 +7,7 @@ function photographerTemplate(data) {
 
     const article = `
       <article>
-        <a href="/">
+        <a href="/photographer.html?id=${data.id}">
           <div class="picture-wrapper">
             <img src="${picture}" alt="${name}">
           </div>
