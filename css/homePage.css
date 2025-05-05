@@ -26,6 +26,12 @@
   margin: 20px 0 0 0;
 }
 
+.photographer_section article div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .picture-wrapper {
   width: 200px;
   height: 200px;
