@@ -9,7 +9,7 @@ async function getPhotographers() {
     const data = await response.json();
     const photographers = data.photographers;
 
-    // Retourne photographes récupérés
+    // Retourne les photographes récupérés
     return { photographers };
   } catch (error) {
     console.error("Erreur:", error);
