@@ -37,3 +37,7 @@ header h1 {
   height: 50px;
   width: 200px;
 }
+
+.photographer_header {
+  margin: 43px 0 40px 100px;
+}
