@@ -1,6 +1,6 @@
 /* <!-- Photographer Page --> */
 
-.photograph-header {
+.photograph_header {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -11,20 +11,20 @@
   margin: 0 100px;
 }
 
-.photograph-header h1 {
+.photograph_header h1 {
   font-size: 64px;
   font-weight: 400;
   color: var(--secondary-color);
   margin: 0;
 }
 
-.photograph-header span {
+.photograph_header span {
   font-size: 24px;
   font-weight: 400;
   color: var(--main-color);
 }
 
-.photograph-header p {
+.photograph_header p {
   font-size: 18px;
   font-weight: 400;
   color: var(--dark-text-color);
@@ -43,14 +43,14 @@
   cursor: pointer;
 }
 
-.photograph-header-img {
+.photograph_header-img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
 }
 
-.photograph-header-img img {
+.photograph_header-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;

@@ -30,7 +30,7 @@ function photographerTemplate(data) {
     const parser = new DOMParser();
 
     const article = `
-      <article class="photograph-header">
+      <article class="photograph_header">
         <div>
           <h1>${name}</h1>
           <div>
@@ -41,7 +41,7 @@ function photographerTemplate(data) {
         <button class="contact_button" onclick="displayModal()">
           Contactez-moi
         </button>
-        <div class="photograph-header-img">
+        <div class="photograph_header-img">
           <img class="review" src="${picture}" alt="${name}">
         </div>
       </article>
