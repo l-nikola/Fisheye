@@ -25,5 +25,35 @@ function photographerTemplate(data) {
     const doc = parser.parseFromString(article, "text/html");
     return doc.querySelector("article");
   }
-  return { name, picture, getUserCardDOM };
+
+  function getUserBannerDOM() {
+    const parser = new DOMParser();
+
+    const article = `
+      <article>
+        
+        <div>
+          <h1>${name}</h1>
+          <div>
+            <span class="city">${data.city}, ${data.country}</span>
+            <p class="tagline">${data.tagline}</p>
+          </div>
+        </div>
+        <div class="photograph-header">
+          <button class="contact_button" onclick="displayModal()">
+            Contactez-moi
+          </button>
+        </div>
+        <div class="banner-wrapper">
+          <img src="${picture}" alt="${name}">
+        </div>
+      </article>
+    `;
+
+    // Converti la chaîne HTML en un document DOM.
+    const doc = parser.parseFromString(article, "text/html");
+    return doc.querySelector("article");
+  }
+
+  return { name, picture, getUserCardDOM, getUserBannerDOM };
 }
