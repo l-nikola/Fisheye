@@ -88,7 +88,7 @@ function photographerPicture(photographerMedia, photographerName) {
         }
         <div class="media_info">
           <h1>${media.title}</h1>
-          <span class="likes">${media.likes} ❤</span>
+          <span>${media.likes} <i class="fa-solid fa-heart"></i> </span>
         </div>
       </article>
     `;
