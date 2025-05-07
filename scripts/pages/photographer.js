@@ -59,14 +59,58 @@ function createFilterSelect() {
   </section>
   `;
 
+  // Convertit la chaîne HTML en un élément DOM
   const doc = parser.parseFromString(select, "text/html");
   return doc.querySelector("section");
+}
+
+// Fonction pour afficher les médias du photographe
+function photographerPicture(photographerMedia, photographerName) {
+  // Crée une section pour les médias
+  const mediaSection = document.createElement("section");
+  mediaSection.classList.add("media_section");
+
+  const parser = new DOMParser();
+
+  // Parcourt les médias du photographe courant
+  photographerMedia.forEach((media) => {
+    // Ajoute le nom du photographe dans le chemin
+    const mediaPath = `assets/images/${photographerName}/${
+      media.image || media.video
+    }`;
+
+    const mediaHTML = `
+      <article class="media_card">
+        ${
+          media.image
+            ? `<img src="${mediaPath}" alt="${media.title}">`
+            : `<video controls src="${mediaPath}"></video>`
+        }
+        <div class="media_info">
+          <h1>${media.title}</h1>
+          <span class="likes">${media.likes} ❤</span>
+        </div>
+      </article>
+    `;
+
+    // Convertit la chaîne HTML en un élément DOM
+    const doc = parser.parseFromString(mediaHTML, "text/html");
+    const mediaCard = doc.querySelector(".media_card");
+
+    // Ajoute la carte média à la section
+    mediaSection.appendChild(mediaCard);
+  });
+
+  // Ajoute la section des médias à la page
+  const photographersSection = document.getElementById("main");
+  photographersSection.appendChild(mediaSection);
 }
 
 async function displayDataPhotographer(photographer) {
   const photographersSection = document.getElementById("main");
 
   const photographerModel = photographerTemplate(photographer);
+
   const userCardDOM = photographerModel.getUserBannerDOM();
   photographersSection.appendChild(userCardDOM);
 
@@ -91,6 +135,7 @@ async function init() {
   );
 
   displayDataPhotographer(currentPhotographer);
+  photographerPicture(photographerMedia, currentPhotographer.name);
 
   console.log("Photographe sélectionné :", currentPhotographer);
   console.log("Médias du photographe :", photographerMedia);
