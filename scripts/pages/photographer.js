@@ -88,7 +88,9 @@ function photographerPicture(photographerMedia, photographerName) {
         }
         <div class="media_info">
           <h1>${media.title}</h1>
-          <span>${media.likes} <i class="fa-solid fa-heart"></i> </span>
+          <span class="likes">${
+            media.likes
+          } <i class="fa-solid fa-heart"></i> </span>
         </div>
       </article>
     `;
@@ -136,9 +138,6 @@ async function init() {
 
   displayDataPhotographer(currentPhotographer);
   photographerPicture(photographerMedia, currentPhotographer.name);
-
-  console.log("Photographe sélectionné :", currentPhotographer);
-  console.log("Médias du photographe :", photographerMedia);
 }
 
 init();
