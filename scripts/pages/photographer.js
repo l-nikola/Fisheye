@@ -44,12 +44,34 @@ function getCurrentPhotographer() {
   return parseInt(params.get("id"));
 }
 
+// Fonction pour créer un élément de filtre
+function createFilterSelect() {
+  const parser = new DOMParser();
+
+  const select = ` 
+  <section>
+    <label for="filter-select">Trier par</label>
+    <select class="photographer_select" id="filter-select">
+      <option value="popularity">Popularité</option>
+      <option value="date">Date</option>
+      <option value="title">Titre</option>
+    </select>
+  </section>
+  `;
+
+  const doc = parser.parseFromString(select, "text/html");
+  return doc.querySelector("section");
+}
+
 async function displayDataPhotographer(photographer) {
   const photographersSection = document.getElementById("main");
 
   const photographerModel = photographerTemplate(photographer);
   const userCardDOM = photographerModel.getUserBannerDOM();
   photographersSection.appendChild(userCardDOM);
+
+  const selectElement = createFilterSelect();
+  photographersSection.appendChild(selectElement);
 }
 
 async function init() {
