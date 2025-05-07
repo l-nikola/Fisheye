@@ -49,9 +49,9 @@ function createFilterSelect() {
   const parser = new DOMParser();
 
   const select = ` 
-  <section>
+  <section class="photographer_select">
     <label for="filter-select">Trier par</label>
-    <select class="photographer_select" id="filter-select">
+    <select id="filter-select">
       <option value="popularity">Popularité</option>
       <option value="date">Date</option>
       <option value="title">Titre</option>
