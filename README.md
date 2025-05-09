@@ -2,6 +2,7 @@
 
 ## Sommaire
 
+- [Installation](#installation)
 - [Introduction](#introduction)
 - [Fonctionnalités](#fonctionnalités)
 - [Design](#design)
@@ -10,6 +11,16 @@
 ## Introduction
 
 Fisheye est une plateforme de mise en valeur pour les photographes freelances. Le site permet de parcourir une galerie de photographes, de consulter leurs travaux (photos et vidéos), et de les contacter pour des prestations.
+
+## Installation
+
+Pour installer le projet, clonez le dépôt GitHub
+
+Installez les dépendances :
+
+```bash
+npm install
+```
 
 ## Fonctionnalités
 
