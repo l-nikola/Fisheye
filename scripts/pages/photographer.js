@@ -1,22 +1,6 @@
-async function getPhotographers() {
-  try {
-    const response = await fetch("data/photographers.json");
-    if (!response.ok) {
-      throw new Error("Erreur lors du chargement du fichier JSON");
-    }
-
-    const data = await response.json();
-    const photographers = data.photographers;
-
-    // Retourne les photographes récupérés
-    return { photographers };
-  } catch (error) {
-    console.error("Erreur:", error);
-
-    // En cas d'erreur, retourner un tableau vide
-    return { photographers: [] };
-  }
-}
+// <--- Import --->
+import { photographerTemplate } from "../templates/photographer.js";
+import { getPhotographers } from "../pages/index.js";
 
 async function getMedia() {
   try {
