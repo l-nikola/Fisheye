@@ -1,26 +1,6 @@
 // <--- Import --->
 import { photographerTemplate } from "../templates/photographer.js";
-import { getPhotographers } from "../pages/index.js";
-
-async function getMedia() {
-  try {
-    const response = await fetch("data/photographers.json");
-    if (!response.ok) {
-      throw new Error("Erreur lors du chargement du fichier JSON");
-    }
-
-    const data = await response.json();
-    const media = data.media;
-
-    // Retourne les medias récupérés
-    return { media };
-  } catch (error) {
-    console.error("Erreur:", error);
-
-    // En cas d'erreur, retourner un tableau vide
-    return { media: [] };
-  }
-}
+import { getData } from "../utils/dataService.js";
 
 // Fonction pour extraire l'ID depuis l'URL
 function getCurrentPhotographer() {
@@ -106,8 +86,8 @@ async function displayDataPhotographer(photographer) {
 
 async function init() {
   // Récupère les datas des photographes et des médias
-  const { photographers } = await getPhotographers();
-  const { media } = await getMedia();
+  const { photographers } = await getData();
+  const { media } = await getData();
   const photographerId = getCurrentPhotographer();
 
   // Trouve le photographe correspondant
