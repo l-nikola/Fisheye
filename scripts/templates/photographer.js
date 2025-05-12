@@ -1,3 +1,7 @@
+// <--- Import --->
+import { displayModal } from "../utils/contactForm.js";
+import { closeModal } from "../utils/contactForm.js";
+
 export function photographerTemplate(data) {
   const { name, portrait } = data;
   const picture = `assets/images/Photographers ID Photos/${portrait}`;
@@ -38,7 +42,7 @@ export function photographerTemplate(data) {
             <p class="tagline">${data.tagline}</p>
           </div>
         </div>
-        <button class="contact_button" onclick="displayModal()">
+        <button class="contact_button">
           Contactez-moi
         </button>
         <div class="photograph_header-img">
@@ -49,6 +53,18 @@ export function photographerTemplate(data) {
 
     // Converti la chaîne HTML en un document DOM.
     const doc = parser.parseFromString(article, "text/html");
+
+    // Gestionnaire d'événements pour le bouton "Contactez-moi"
+    doc
+      .querySelector(".contact_button")
+      .addEventListener("click", displayModal);
+
+    // Gestionnaire d'événements pour le bouton de fermeture
+    const closeButton = document.querySelector("#contact_modal img");
+    if (closeButton) {
+      closeButton.addEventListener("click", closeModal);
+    }
+
     return doc.querySelector("article");
   }
 
