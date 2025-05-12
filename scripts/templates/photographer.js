@@ -65,7 +65,32 @@ export function photographerTemplate(data) {
       closeButton.addEventListener("click", closeModal);
     }
 
+    const modalSend = document.querySelector(".modalSend");
+    modalSend.addEventListener("click", handleFormSubmit);
+
     return doc.querySelector("article");
+  }
+
+  // Fonction pour gérer l'envoi du formulaire
+  function handleFormSubmit(event) {
+    event.preventDefault(); // Empêche le rechargement de la page
+
+    // Récupération des données du formulaire
+    const form = document.querySelector("#contact_modal form");
+    let formData = {
+      firstName: form.first.value,
+      lastName: form.last.value,
+      email: form.email.value,
+      message: form.message.value,
+    };
+
+    // Affiche les données dans la console
+    console.log("Données du formulaire :", formData);
+
+    closeModal();
+
+    // Reset le formulaire
+    document.querySelector("#contact_modal form").reset();
   }
 
   return { name, picture, getUserCardDOM, getUserBannerDOM };
