@@ -6,6 +6,17 @@ export function displayModal(photographerName) {
   nameElement.textContent = photographerName;
 
   modal.style.display = "block";
+
+  // Fermer la modale en cliquant sur enter
+  const closeIcon = document.getElementById("close-modal");
+  closeIcon.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      document.getElementById("contact_modal").style.display = "none";
+    }
+  });
+
+  const firstInput = document.getElementById("modal-title");
+  firstInput.focus();
 }
 
 export function closeModal() {
