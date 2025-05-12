@@ -2,6 +2,17 @@
 import { photographerTemplate } from "../templates/photographer.js";
 import { getData } from "../utils/dataService.js";
 
+// Fonction pour incrémenter le nombre de likes
+function incrementLikes(event) {
+  const likeCount = event.currentTarget.firstChild;
+
+  // Convertit le texte actuel en nombre
+  let currentLikes = parseInt(likeCount.textContent);
+  currentLikes += 1;
+
+  likeCount.textContent = `${currentLikes} `;
+}
+
 // Fonction pour extraire l'ID depuis l'URL
 function getCurrentPhotographer() {
   const params = new URLSearchParams(window.location.search);
@@ -62,6 +73,9 @@ function photographerPicture(photographerMedia, photographerName) {
     // Convertit la chaîne HTML en un élément DOM
     const doc = parser.parseFromString(mediaHTML, "text/html");
     const mediaCard = doc.querySelector(".media_card");
+
+    // Listener sur le bouton like
+    mediaCard.querySelector(".likes").addEventListener("click", incrementLikes);
 
     // Ajoute la carte média à la section
     mediaSection.appendChild(mediaCard);
