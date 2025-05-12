@@ -57,7 +57,7 @@ export function photographerTemplate(data) {
     // Gestionnaire d'événements pour le bouton "Contactez-moi"
     doc
       .querySelector(".contact_button")
-      .addEventListener("click", displayModal);
+      .addEventListener("click", () => displayModal(name));
 
     // Gestionnaire d'événements pour le bouton de fermeture
     const closeButton = document.querySelector("#contact_modal img");
