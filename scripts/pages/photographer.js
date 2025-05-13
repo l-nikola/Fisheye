@@ -28,6 +28,34 @@ function getCurrentPhotographer() {
   return parseInt(params.get("id"));
 }
 
+// Fonction pour trier les médias
+function sortMedia(selectedOtion, mediaArray, photographerName) {
+  let sortedMedia;
+
+  switch (selectedOtion) {
+    case "popularity":
+      sortedMedia = [...mediaArray].sort((a, b) => b.likes - a.likes);
+      break;
+    case "date":
+      sortedMedia = [...mediaArray].sort(
+        (a, b) => new Date(b.date) - new Date(a.date)
+      );
+      break;
+    case "title":
+      sortedMedia = [...mediaArray].sort((a, b) =>
+        a.title.localeCompare(b.title)
+      );
+      break;
+    default:
+      sortedMedia = mediaArray;
+  }
+
+  document.querySelector(".media_section").remove();
+
+  // Réafficher les médias triés
+  photographerPicture(sortedMedia, photographerName);
+}
+
 // Fonction pour compter le nombre total de likes
 function totalLikesCount(photographerMedia) {
   let totalLikes = 0;
@@ -136,6 +164,13 @@ async function displayDataPhotographer(photographer, photographerMedia) {
 
   const totalLike = totalLikeAndPrice(photographerMedia, photographer.price);
   photographersSection.appendChild(totalLike);
+
+  document
+    .getElementById("filter-select")
+    .addEventListener("change", (event) => {
+      const sortBy = event.target.value;
+      sortMedia(sortBy, photographerMedia, photographer.name);
+    });
 }
 
 async function init() {
