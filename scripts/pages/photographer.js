@@ -113,6 +113,12 @@ function photographerPicture(photographerMedia, photographerName) {
 
   const parser = new DOMParser();
 
+  // Crée un tableau des médias pour la navigation
+  const mediaArray = photographerMedia.map((media) => ({
+    src: `assets/images/${photographerName}/${media.image || media.video}`,
+    title: media.title,
+  }));
+
   // Parcourt les médias du photographe courant
   photographerMedia.forEach((media) => {
     // Ajoute le nom du photographe dans le chemin
@@ -146,7 +152,7 @@ function photographerPicture(photographerMedia, photographerName) {
     // Listener pour ouvrir la lightbox
     const mediaItem = mediaCard.querySelector(".media_item");
     mediaItem.addEventListener("click", () => {
-      lightbox(mediaPath, media.title);
+      lightbox(mediaPath, media.title, mediaArray);
     });
 
     // Ajoute la carte média à la section
