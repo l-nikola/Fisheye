@@ -1,6 +1,7 @@
 // <--- Import --->
 import { photographerTemplate } from "../templates/photographer.js";
 import { getData } from "../utils/dataService.js";
+import { lightbox } from "../utils/lightbox.js";
 
 // Fonction pour incrémenter le nombre de likes
 function incrementLikes(event) {
@@ -123,8 +124,8 @@ function photographerPicture(photographerMedia, photographerName) {
       <article class="media_card">
         ${
           media.image
-            ? `<img src="${mediaPath}" alt="${media.title}">`
-            : `<video controls src="${mediaPath}"></video>`
+            ? `<img src="${mediaPath}" alt="${media.title}" class="media_item">`
+            : `<video src="${mediaPath}" class="media_item"></video>`
         }
         <div class="media_info">
           <h1>${media.title}</h1>
@@ -141,6 +142,12 @@ function photographerPicture(photographerMedia, photographerName) {
 
     // Listener sur le bouton like
     mediaCard.querySelector(".likes").addEventListener("click", incrementLikes);
+
+    // Listener pour ouvrir la lightbox
+    const mediaItem = mediaCard.querySelector(".media_item");
+    mediaItem.addEventListener("click", () => {
+      lightbox(mediaPath, media.title);
+    });
 
     // Ajoute la carte média à la section
     mediaSection.appendChild(mediaCard);
