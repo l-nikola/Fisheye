@@ -10,7 +10,16 @@ function incrementLikes(event) {
   let currentLikes = parseInt(likeCount.textContent);
   currentLikes += 1;
 
+  // Met à jour le compteur de likes individuel
   likeCount.textContent = `${currentLikes} `;
+
+  // Met à jour le compteur total des likes
+  const totalLikesElement = document.querySelector(".totalLikes");
+  if (totalLikesElement) {
+    let totalLikes = parseInt(totalLikesElement.textContent);
+    totalLikes += 1;
+    totalLikesElement.textContent = totalLikes;
+  }
 }
 
 // Fonction pour extraire l'ID depuis l'URL
