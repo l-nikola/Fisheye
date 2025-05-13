@@ -19,6 +19,34 @@ function getCurrentPhotographer() {
   return parseInt(params.get("id"));
 }
 
+// Fonction pour compter le nombre total de likes
+function totalLikesCount(photographerMedia) {
+  let totalLikes = 0;
+  photographerMedia.forEach((media) => {
+    totalLikes += media.likes;
+  });
+  return totalLikes;
+}
+
+// Fonction pour créer la section des likes et du prix
+function totalLikeAndPrice(photographerMedia, price) {
+  const parser = new DOMParser();
+
+  const div = ` 
+  <section class="totalLikeAndPrice">
+    <div>
+      <span class="totalLikes">${totalLikesCount(photographerMedia)}</span>
+      <i class="fa-solid fa-heart"></i>
+    </div>
+    <span class="totalPrice">${price}€ /jour</span>
+  </section>
+  `;
+
+  // Convertit la chaîne HTML en un élément DOM
+  const doc = parser.parseFromString(div, "text/html");
+  return doc.querySelector("section");
+}
+
 // Fonction pour créer un élément de filtre
 function createFilterSelect() {
   const parser = new DOMParser();
@@ -86,7 +114,7 @@ function photographerPicture(photographerMedia, photographerName) {
   photographersSection.appendChild(mediaSection);
 }
 
-async function displayDataPhotographer(photographer) {
+async function displayDataPhotographer(photographer, photographerMedia) {
   const photographersSection = document.getElementById("main");
 
   const photographerModel = photographerTemplate(photographer);
@@ -96,6 +124,9 @@ async function displayDataPhotographer(photographer) {
 
   const selectElement = createFilterSelect();
   photographersSection.appendChild(selectElement);
+
+  const totalLike = totalLikeAndPrice(photographerMedia, photographer.price);
+  photographersSection.appendChild(totalLike);
 }
 
 async function init() {
@@ -114,7 +145,7 @@ async function init() {
     (item) => item.photographerId === photographerId
   );
 
-  displayDataPhotographer(currentPhotographer);
+  displayDataPhotographer(currentPhotographer, photographerMedia);
   photographerPicture(photographerMedia, currentPhotographer.name);
 }
 
