@@ -1,3 +1,5 @@
+import { trapFocus } from "../utils/trapFocus.js";
+
 let mediaList = [];
 let currentIndex = 0;
 
@@ -52,6 +54,18 @@ export function lightbox(src, mediaTitle, mediaArray) {
 
   // Ajoute la lightbox au body
   document.body.appendChild(lightboxElement);
+
+  // Ajoute le piège à focus
+  trapFocus(lightboxElement);
+
+  // Place le focus sur le premier élément focusable
+  const firstFocusableElement =
+    lightboxElement.querySelector("button, [tabindex]");
+  if (firstFocusableElement) {
+    setTimeout(() => {
+      firstFocusableElement.focus();
+    }, 0);
+  }
 }
 
 // Fonction pour naviguer entre les médias (précédent ou suivant)

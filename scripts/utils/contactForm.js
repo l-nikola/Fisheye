@@ -1,3 +1,5 @@
+import { trapFocus } from "./trapFocus.js";
+
 export function displayModal(photographerName) {
   const modal = document.getElementById("contact_modal");
   const nameElement = document.getElementById("photographer-name");
@@ -7,16 +9,22 @@ export function displayModal(photographerName) {
 
   modal.style.display = "block";
 
-  // Fermer la modale en cliquant sur enter
+  // Piège le focus dans la modale
+  trapFocus(modal);
+
+  // Place le focus sur le premier champ du formulaire
+  const firstInput = modal.querySelector("input, textarea, select");
+  if (firstInput) {
+    firstInput.focus();
+  }
+
+  // Fermer la modale en cliquant sur Enter
   const closeIcon = document.getElementById("close-modal");
   closeIcon.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-      document.getElementById("contact_modal").style.display = "none";
+      closeModal();
     }
   });
-
-  const firstInput = document.getElementById("modal-title");
-  firstInput.focus();
 }
 
 export function closeModal() {
