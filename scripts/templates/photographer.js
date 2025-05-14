@@ -36,17 +36,17 @@ export function photographerTemplate(data) {
     const article = `
       <article class="photograph_header">
         <div>
-          <h1>${name}</h1>
+          <h1 tabindex="0">${name}</h1>
           <div>
-            <span class="city">${data.city}, ${data.country}</span>
-            <p class="tagline">${data.tagline}</p>
+            <span class="city" tabindex="0">${data.city}, ${data.country}</span>
+            <p class="tagline" tabindex="0">${data.tagline}</p>
           </div>
         </div>
         <button class="contact_button">
           Contactez-moi
         </button>
         <div class="photograph_header-img">
-          <img class="review" src="${picture}" alt="${name}">
+          <img class="review" tabindex="0" src="${picture}" alt="${name}">
         </div>
       </article>
     `;
