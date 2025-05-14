@@ -72,11 +72,11 @@ function totalLikeAndPrice(photographerMedia, price) {
 
   const div = ` 
   <section class="totalLikeAndPrice">
-    <div>
+    <div tabindex="0">
       <span class="totalLikes">${totalLikesCount(photographerMedia)}</span>
       <i class="fa-solid fa-heart"></i>
     </div>
-    <span class="totalPrice">${price}€ /jour</span>
+    <span class="totalPrice" tabindex="0">${price}€ /jour</span>
   </section>
   `;
 
@@ -91,7 +91,7 @@ function createFilterSelect() {
 
   const select = ` 
   <section class="photographer_select">
-    <label for="filter-select">Trier par</label>
+    <label for="filter-select" tabindex="0">Trier par</label>
     <select id="filter-select">
       <option value="popularity">Popularité</option>
       <option value="date">Date</option>
@@ -130,12 +130,12 @@ function photographerPicture(photographerMedia, photographerName) {
       <article class="media_card">
         ${
           media.image
-            ? `<img src="${mediaPath}" alt="${media.title}" class="media_item">`
-            : `<video src="${mediaPath}" class="media_item"></video>`
+            ? `<img src="${mediaPath}" alt="${media.title}" class="media_item" tabindex="0">`
+            : `<video src="${mediaPath}" class="media_item" tabindex="0"></video>`
         }
         <div class="media_info">
-          <h1>${media.title}</h1>
-          <span class="likes">${
+          <h1 tabindex="0">${media.title}</h1>
+          <span class="likes" tabindex="0">${
             media.likes
           } <i class="fa-solid fa-heart"></i> </span>
         </div>
@@ -148,11 +148,23 @@ function photographerPicture(photographerMedia, photographerName) {
 
     // Listener sur le bouton like
     mediaCard.querySelector(".likes").addEventListener("click", incrementLikes);
+    // Listener pour le like avec la touche Enter
+    mediaCard.querySelector(".likes").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        incrementLikes(e);
+      }
+    });
 
     // Listener pour ouvrir la lightbox
     const mediaItem = mediaCard.querySelector(".media_item");
     mediaItem.addEventListener("click", () => {
       lightbox(mediaPath, media.title, mediaArray);
+    });
+    // Ouvrir la lightbox avec la touche Enter
+    mediaItem.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        lightbox(mediaPath, media.title, mediaArray);
+      }
     });
 
     // Ajoute la carte média à la section
