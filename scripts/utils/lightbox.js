@@ -15,8 +15,8 @@ export function lightbox(src, mediaTitle, mediaArray) {
           </button>
           ${
             src.endsWith(".mp4")
-              ? `<video class="lightbox__media" src="${src}" controls autoplay></video>`
-              : `<img class="lightbox__media" src="${src}" alt="Lightbox media">`
+              ? `<video class="lightbox__media" tabindex="0" src="${src}" controls autoplay></video>`
+              : `<img class="lightbox__media" tabindex="0" src="${src}" alt="Lightbox media">`
           }
           <div class="lightbox__controls lightboxChevronContainer">
             <button class="lightbox__prev lightboxChevron" aria-label="Previous media">
@@ -26,7 +26,7 @@ export function lightbox(src, mediaTitle, mediaArray) {
               <i class="fa-solid fa-chevron-right"></i>
             </button>
           </div>
-          <span>${mediaTitle}</span>
+          <span tabindex="0">${mediaTitle}</span>
       </div>
   `;
 
