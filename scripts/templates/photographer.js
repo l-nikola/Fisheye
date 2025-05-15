@@ -1,7 +1,6 @@
 // <--- Import --->
-import { displayModal } from "../utils/contactForm.js";
+import { displayModal, handleFormSubmit } from "../utils/contactForm.js";
 import { closeModal } from "../utils/contactForm.js";
-import { handleFormSubmit } from "../utils/contactForm.js";
 
 export function photographerTemplate(data) {
   const { name, portrait } = data;

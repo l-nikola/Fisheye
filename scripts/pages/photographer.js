@@ -1,11 +1,9 @@
 // <--- Import --->
 import { photographerTemplate } from "../templates/photographer.js";
-import { getData } from "../utils/dataService.js";
-import { getCurrentPhotographer } from "../utils/dataService.js";
+import { getData, getCurrentPhotographer } from "../utils/dataService.js";
 import { totalLikeAndPrice } from "../templates/likesAndPrices.js";
-import { createFilterSelect } from "../templates/select.js";
+import { createFilterSelect, sortMedia } from "../templates/select.js";
 import { photographerPicture } from "../templates/photographerPicture.js";
-import { sortMedia } from "../templates/select.js";
 
 async function displayDataPhotographer(photographer, photographerMedia) {
   const photographersSection = document.getElementById("main");
@@ -31,8 +29,7 @@ async function displayDataPhotographer(photographer, photographerMedia) {
 
 async function init() {
   // Récupère les datas des photographes et des médias
-  const { photographers } = await getData();
-  const { media } = await getData();
+  const { photographers, media } = await getData();
   const photographerId = getCurrentPhotographer();
 
   // Trouve le photographe correspondant

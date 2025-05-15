@@ -3,8 +3,6 @@ export function trapFocus(containerElement) {
     containerElement.querySelectorAll("button, input, textarea, [tabindex]")
   );
 
-  if (focusableElements.length === 0) return;
-
   const firstFocusableElement = focusableElements[0];
   const lastFocusableElement = focusableElements[focusableElements.length - 1];
 
