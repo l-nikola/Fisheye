@@ -1,3 +1,4 @@
+// <--- Import --->
 import { trapFocus } from "./trapFocus.js";
 
 export function displayModal(photographerName) {
@@ -30,4 +31,26 @@ export function displayModal(photographerName) {
 export function closeModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "none";
+}
+
+// Fonction pour gérer l'envoi du formulaire
+export function handleFormSubmit(event) {
+  event.preventDefault(); // Empêche le rechargement de la page
+
+  // Récupération des données du formulaire
+  const form = document.querySelector("#contact_modal form");
+  let formData = {
+    firstName: form.first.value,
+    lastName: form.last.value,
+    email: form.email.value,
+    message: form.message.value,
+  };
+
+  // Affiche les données dans la console
+  console.log("Données du formulaire :", formData);
+
+  closeModal();
+
+  // Reset le formulaire
+  document.querySelector("#contact_modal form").reset();
 }

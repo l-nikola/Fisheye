@@ -23,3 +23,9 @@ export async function getData() {
     };
   }
 }
+
+// Fonction pour extraire l'ID depuis l'URL
+export function getCurrentPhotographer() {
+  const params = new URLSearchParams(window.location.search);
+  return parseInt(params.get("id"));
+}

@@ -1,6 +1,8 @@
 /* <!-- Import --> */
-@import url("photographerPage.css");
-@import url("homePage.css");
+@import url("/css/pages/homePage.css");
+@import url("/css/pages/photographerPage.css");
+@import url("/css/components/contactForm.css");
+@import url("/css/components/lightbox.css");
 
 /* <!-- General --> */
 :root {
