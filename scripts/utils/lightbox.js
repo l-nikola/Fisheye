@@ -52,6 +52,17 @@ export function lightbox(src, mediaTitle, mediaArray) {
     .querySelector(".lightbox__next")
     .addEventListener("click", () => navigateMedia(1));
 
+  // Gestion des événements au clavier
+  lightboxElement.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      lightboxElement.remove();
+    } else if (e.key === "ArrowLeft") {
+      navigateMedia(-1);
+    } else if (e.key === "ArrowRight") {
+      navigateMedia(1);
+    }
+  });
+
   // Ajoute la lightbox au body
   document.body.appendChild(lightboxElement);
 
