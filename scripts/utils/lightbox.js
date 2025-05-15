@@ -11,20 +11,20 @@ export function lightbox(src, mediaTitle, mediaArray) {
   const parser = new DOMParser();
 
   const div = `
-      <div class="lightbox" role="dialog" aria-modal="true" aria-label="Galerie d’images">
-          <button class="lightboxCloseButton" aria-label="Close lightbox">
+      <div class="lightbox" role="dialog" aria-modal="true" aria-label="image closeup view">
+          <button class="lightboxCloseButton" aria-label="Close dialog">
               <i class="fa-solid fa-xmark"></i>
           </button>
           ${
             src.endsWith(".mp4")
-              ? `<video class="lightbox__media" tabindex="0" src="${src}" controls autoplay></video>`
-              : `<img class="lightbox__media" tabindex="0" src="${src}" alt="Lightbox media">`
+              ? `<video class="lightbox__media" tabindex="0" src="${src}" alt="${mediaTitle}" controls autoplay></video>`
+              : `<img class="lightbox__media" tabindex="0" src="${src}" alt="${mediaTitle}">`
           }
           <div class="lightbox__controls lightboxChevronContainer">
-            <button class="lightbox__prev lightboxChevron" aria-label="Previous media">
+            <button class="lightbox__prev lightboxChevron" aria-label="Previous image">
               <i class="fa-solid fa-chevron-left"></i>
             </button>
-            <button class="lightbox__next lightboxChevron" aria-label="Next media">
+            <button class="lightbox__next lightboxChevron" aria-label="Next image">
               <i class="fa-solid fa-chevron-right"></i>
             </button>
           </div>

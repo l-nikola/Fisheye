@@ -92,7 +92,7 @@ function createFilterSelect() {
   const select = ` 
   <section class="photographer_select">
     <label for="filter-select" tabindex="0">Trier par</label>
-    <select id="filter-select">
+    <select id="filter-select" aria-label="Order by">
       <option value="popularity">Popularité</option>
       <option value="date">Date</option>
       <option value="title">Titre</option>
@@ -130,14 +130,14 @@ function photographerPicture(photographerMedia, photographerName) {
       <article class="media_card">
         ${
           media.image
-            ? `<img src="${mediaPath}" alt="${media.title}" class="media_item" tabindex="0">`
-            : `<video src="${mediaPath}" class="media_item" tabindex="0"></video>`
+            ? `<img src="${mediaPath}" alt="${media.title}, closeup view" class="media_item" tabindex="0">`
+            : `<video src="${mediaPath}" alt="${media.title}, closeup view" class="media_item" tabindex="0"></video>`
         }
         <div class="media_info">
           <h1 tabindex="0">${media.title}</h1>
           <span class="likes" tabindex="0">${
             media.likes
-          } <i class="fa-solid fa-heart"></i> </span>
+          } <i class="fa-solid fa-heart" aria-label=”likes”></i> </span>
         </div>
       </article>
     `;

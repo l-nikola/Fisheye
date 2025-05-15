@@ -17,7 +17,11 @@
   <body>
     <header class="photographerPage_header">
       <a href="/">
-        <img src="assets/images/logo.png" class="logo" />
+        <img
+          src="assets/images/logo.png"
+          class="logo"
+          alt="Fisheye Home page"
+        />
       </a>
     </header>
     <main id="main"></main>
@@ -27,13 +31,13 @@
       aria-modal="true"
       aria-labelledby="modal-title"
     >
-      <div class="modal">
+      <div class="modal" aria-label="Contact me">
         <header>
           <div>
             <h2 id="modal-title" tabindex="0">Contactez-moi</h2>
             <img
               src="assets/icons/close.svg"
-              aria-label="Fermer la modale"
+              aria-label="Close Contact form"
               tabindex="0"
               id="close-modal"
             />
@@ -43,15 +47,25 @@
         <form>
           <div>
             <label for="first" tabindex="0">Prénom</label>
-            <input type="text" id="first" name="first" />
+            <input
+              type="text"
+              id="first"
+              name="first"
+              aria-label="First name"
+            />
             <label for="last" tabindex="0">Nom</label>
-            <input type="text" id="last" name="last" />
+            <input type="text" id="last" name="last" aria-label="Last name" />
             <label for="email" tabindex="0">Email</label>
-            <input type="email" id="email" name="email" />
+            <input type="email" id="email" name="email" aria-label="Email" />
             <label for="message" tabindex="0">Votre message</label>
-            <textarea type="text" id="message" name="message"></textarea>
+            <textarea
+              type="text"
+              id="message"
+              name="message"
+              aria-label="Your message"
+            ></textarea>
           </div>
-          <button class="modalSend">Envoyer</button>
+          <button class="modalSend" aria-label="Send">Envoyer</button>
         </form>
       </div>
     </div>
