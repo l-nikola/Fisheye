@@ -17,11 +17,11 @@ export function photographerTemplate(data) {
           </div>
           <h2>${name}</h2>
         </a>
-        <div tabindex="0">
+        <footer tabindex="0">
           <span class="city">${data.city}, ${data.country}</span>
           <span class="tag">${data.tagline}</span>
           <span class="price">${data.price}€/jour</span>
-        </div>
+        </footer>
       </article>
     `;
 
@@ -35,13 +35,13 @@ export function photographerTemplate(data) {
 
     const article = `
       <article class="photograph_header">
-        <div>
+        <section>
           <h1 tabindex="0">${name}</h1>
           <div>
             <span class="city" tabindex="0">${data.city}, ${data.country}</span>
             <p class="tagline" tabindex="0">${data.tagline}</p>
           </div>
-        </div>
+        </section>
         <button class="contact_button" aria-label="Contact Me" aria-haspopup="dialog">
           Contactez-moi
         </button>
