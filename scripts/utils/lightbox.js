@@ -11,7 +11,7 @@ export function lightbox(src, mediaTitle, mediaArray) {
   const parser = new DOMParser();
 
   const div = `
-      <div class="lightbox">
+      <div class="lightbox" role="dialog" aria-modal="true" aria-label="Galerie d’images">
           <button class="lightboxCloseButton" aria-label="Close lightbox">
               <i class="fa-solid fa-xmark"></i>
           </button>

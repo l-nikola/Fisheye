@@ -42,7 +42,7 @@ export function photographerTemplate(data) {
             <p class="tagline" tabindex="0">${data.tagline}</p>
           </div>
         </div>
-        <button class="contact_button">
+        <button class="contact_button" aria-haspopup="dialog">
           Contactez-moi
         </button>
         <div class="photograph_header-img">
