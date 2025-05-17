@@ -1,5 +1,6 @@
 // <--- Import --->
 import { trapFocus } from "./trapFocus.js";
+import { validateContactForm } from "./formValidation.js";
 
 export function displayModal(photographerName) {
   const modal = document.getElementById("contact_modal");
@@ -36,6 +37,11 @@ export function closeModal() {
 // Fonction pour gérer l'envoi du formulaire
 export function handleFormSubmit(event) {
   event.preventDefault(); // Empêche le rechargement de la page
+
+  // Vérifie si le formulaire est valide
+  if (!validateContactForm()) {
+    return;
+  }
 
   // Récupération des données du formulaire
   const form = document.querySelector("#contact_modal form");
