@@ -10,13 +10,16 @@ export function lightbox(src, mediaTitle, mediaArray) {
 
   const parser = new DOMParser();
 
+  const media = mediaArray[currentIndex];
+  const isVideo = media.type === "video" || src.endsWith(".mp4");
+
   const div = `
       <div class="lightbox" role="dialog" aria-modal="true" aria-label="image closeup view">
           <button class="lightboxCloseButton" aria-label="Close dialog">
               <i class="fa-solid fa-xmark"></i>
           </button>
           ${
-            src.endsWith(".mp4")
+            isVideo
               ? `<video class="lightbox__media" tabindex="0" src="${src}" alt="${mediaTitle}" controls autoplay></video>`
               : `<img class="lightbox__media" tabindex="0" src="${src}" alt="${mediaTitle}">`
           }

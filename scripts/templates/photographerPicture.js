@@ -14,6 +14,7 @@ export function photographerPicture(photographerMedia, photographerName) {
   const mediaArray = photographerMedia.map((media) => ({
     src: `assets/images/${photographerName}/${media.image || media.video}`,
     title: media.title,
+    type: media.type,
   }));
 
   // Parcourt les médias du photographe courant

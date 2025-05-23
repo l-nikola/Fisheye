@@ -1,4 +1,7 @@
-// <--- Fonction pour récupérer les données des photographes et des médias --->
+import { PhotographerFactory } from "../factories/photographerFactory.js";
+import { MediaFactory } from "../factories/mediaFactory.js";
+
+// Fonction pour récupérer les données et instancier via les factories
 export async function getData() {
   try {
     const response = await fetch("data/photographers.json");
@@ -8,10 +11,15 @@ export async function getData() {
 
     const data = await response.json();
 
-    // Retourne les photographes et les médias
+    // Utilisation des factories pour instancier les objets
+    const photographers = (data.photographers || []).map((p) =>
+      PhotographerFactory.create(p)
+    );
+    const media = (data.media || []).map((m) => MediaFactory.create(m));
+
     return {
-      photographers: data.photographers || [],
-      media: data.media || [],
+      photographers,
+      media,
     };
   } catch (error) {
     console.error("Erreur:", error);
